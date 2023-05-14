@@ -1,23 +1,23 @@
-import logo from './logo.svg';
 import './App.css';
+import Nav from './components/Nav';
+import Insert from './components/Insert';
+import { useState } from 'react';
+import BaseColaboradores from './data/Data';
 
 function App() {
+
+
+const [search, setSearch] = useState(BaseColaboradores)
+
+const handleSearch = (value) => {
+  setSearch(value)
+  console.log(value)
+}
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Nav onSearch={handleSearch}/>
+      <Insert />
     </div>
   );
 }
